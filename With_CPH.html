@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>科幻小说——🚶🐴💡 | 王梓泰</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css    ">
     <link rel="icon" href="./pic/a2.ico" type="image/x-icon">
     <style>
+	 /* ========= 弹窗视频层 ========= */
+        #videoModal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        #introVideo {
+            max-width: 90%;
+            max-height: 80%;
+            outline: none;
+        }
+        #skipBtn {
+            margin-top: 1rem;
+            padding: .6rem 1.2rem;
+            background: rgba(64,128,255,.8);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .3s;
+        }
+        #skipBtn:hover {
+            background: rgba(64,128,255,1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -365,19 +398,18 @@
             right: 10%;
             animation-delay: 6s;
         }
-        #videoModal {
-            position: flex;
-            top: 0; left: 0;
-            width: 10%; height: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-family: 'Segoe UI', sans-serif;
-        }
     </style>
 </head>
 <body>
+	<!-- ========= 强制弹窗视频 ========= -->
+    <div id="videoModal">
+        <video id="introVideo" autoplay>
+            <source src="./cph.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+        <button id="skipBtn">跳过</button>
+    </div>
+
     <!-- 浮动图标背景 -->
     <i class="floating-icon">🚶</i>
     <i class="floating-icon">🐴</i>
@@ -393,11 +425,6 @@
                 <img src="./pic/avatar.jpg" alt="作者头像">
                 <span>作者：王梓泰</span>
             </div>
-            <h1> 
-            </h1>
-            <div id="videoModal">
-                <source src="./CPH.mp4" type="video/mp4">
-            </div>
         </header>
         
         <div class="content-section">
@@ -406,7 +433,7 @@
                 我，王梓泰，现在读高一。在七年级后八年级参加了广东科学院举办的青少年机器人比赛红色之旅项目，并且分别斩获省二等奖和省第一名。
             </p>
             <p class="narrative">
-                24年11月初（6号？）在一个阳光明媚的中午，我（王梓泰）从宿舍赶到教室，然后陈平浩突然走过来，招呼我出去教室外面谈话。他向我说：“你有兴趣打机器人比赛吗？”我说：“有啊！”他说这个很累了，我说我的参赛经验很丰富，不怕的。他答应了。
+                24年11月初（6号？）在一个阳光明媚的中午，我（王梓泰）从宿舍赶到教室，然后陈平浩突然走过来，招呼我出去教室外面谈话。他向我说："你有兴趣打机器人比赛吗？"我说："有啊！"他说这个很累了，我说我的参赛经验很丰富，不怕的。他答应了。
             </p>
             
             <div class="chat-section">
@@ -477,7 +504,7 @@
         <div class="content-section">
             <h2 class="section-title"><i class="fas fa-code"></i> 生日提醒程序</h2>
             <p class="narrative">
-                过后，余嘉伟知道我编程能力还行，让我去做一个生日提醒程序。我先答应了，后面又拒绝了，和他说让陈平浩去做，说是“另请高人”。他不太同意，经过我的软磨硬泡后，他中午同意了我的计划，说寒假去和平浩说。
+                过后，余嘉伟知道我编程能力还行，让我去做一个生日提醒程序。我先答应了，后面又拒绝了，和他说让陈平浩去做，说是"另请高人"。他不太同意，经过我的软磨硬泡后，他中午同意了我的计划，说寒假去和平浩说。
             </p>
             
             <div class="timeline">
@@ -630,8 +657,7 @@
         <div class="content-section">
             <h2 class="section-title"><i class="fas fa-balance-scale"></i> 辩论赛</h2>
             <p class="narrative">
-                到了辩论赛，我去做主持人，稿子中有点夹带私货讽刺平浩。不过他的辩论发挥得超差，每次他说完听众与对方辩手都不知道他在说什么。后面他还和谢烨睿解释说他以为对方在查资料时都有查过那些专业名词，所以他当对方是懂得，直接提出、不解释。
-                他还说了“如果他们（在自由辩论环节）攻击的不是蒋妮而是我，那肯定是我们赢。”他明明自己逻辑都不清晰了。
+                到了辩论赛，我去做主持人，稿子中有点夹带私货讽刺平浩。不过他的辩论发挥得超差，每次他说完听众与对方辩手都不知道他在说什么。后面他还和谢烨睿解释说他以为对方在查资料时都有查过那些专业名词，所以他当对方是懂得，直接提出、不解释。他还说了“如果他们（在自由辩论环节）攻击的不是蒋妮而是我，那肯定是我们赢。”他明明自己逻辑都不清晰了。
             </p>
         </div>
         
@@ -841,7 +867,7 @@
             <p class="narrative">
                 然而真的是和解吗？后来他一看到我扭头就走。我和他打招呼他也直接扭头就走。我后来也扭头就走了。
             </p>
-            <p class="narrative">我从来没有对一个人的情感这么复杂过，还是个男的，又“爱”又“恨”……</p>
+            <p class="narrative">我从来没有对一个人的情感这么复杂过，还是个男的，又"爱"又"恨"……</p>
         </div>
         
         <div class="footer-note">
@@ -849,6 +875,24 @@
             <p>机器人比赛 | 青春成长 | 人际关系探索</p>
         </div>
     </div>
+
+    <!-- ========= 弹窗控制脚本 ========= -->
+    <script>
+        const video   = document.getElementById('introVideo');
+        const modal   = document.getElementById('videoModal');
+        const skipBtn = document.getElementById('skipBtn');
+
+        // 播放完毕自动关闭
+        video.onended = () => modal.remove();
+
+        // 点击“跳过”按钮关闭
+        skipBtn.onclick = () => modal.remove();
+
+        // 点击视频区域外也可关闭（可选）
+        modal.onclick = e => {
+            if (e.target === modal) modal.remove();
+        };
+    </script>
 
     <script>
         // 图片点击放大效果
