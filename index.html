@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高中生个人主页 | GitHub Pages</title>
+    <title>王梓泰的个人主页 | GitHub Pages</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -93,14 +93,15 @@
         }
         
         .avatar {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             margin: 0 auto 1.2rem;
             overflow: hidden;
             background: linear-gradient(135deg, #e0eafc, #cfdef3);
             padding: 5px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border: 2px solid rgba(255, 255, 255, 0.6);
         }
         
         .avatar img {
@@ -113,28 +114,34 @@
         
         h1 {
             font-size: 2.8rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.3rem;
             background: linear-gradient(90deg, #4a6fa5, #769fcd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .school {
-            font-size: 1.3rem;
-            color: #6c7a89;
-            font-weight: 400;
+            font-size: 1.4rem;
+            color: #5a6a85;
+            font-weight: 500;
             margin-bottom: 0.8rem;
+            background: rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
         }
         
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #5a6a85;
-            font-weight: 300;
+            font-weight: 400;
             max-width: 500px;
             margin: 0 auto 1.5rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         .social-icons {
@@ -148,208 +155,298 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: #4a6fa5;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
         .social-icons a:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.1);
             box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-            background: white;
+            background: linear-gradient(135deg, rgba(161, 196, 253, 0.3), rgba(194, 233, 251, 0.3));
             color: #2a5298;
         }
         
         /* 液态玻璃卡片 */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 22px;
-            padding: 2.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            margin-bottom: 1.8rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
+            position: relative;
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            z-index: -1;
+            border-radius: 28px;
         }
         
         .glass-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
         }
         
         .glass-card h2 {
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
             color: #2a5298;
             display: flex;
             align-items: center;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .glass-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4a6fa5, #769fcd);
+            border-radius: 3px;
         }
         
         .glass-card h2 i {
-            margin-right: 12px;
+            margin-right: 15px;
             background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .glass-card p {
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #5a6a85;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         
         /* 学业部分 */
         .subjects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
             margin-top: 1.2rem;
         }
         
         .subject-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(5px);
-            border-radius: 16px;
-            padding: 1.2rem;
-            flex: 1;
-            min-width: 150px;
+            border-radius: 18px;
+            padding: 1.5rem;
             border: 1px solid rgba(161, 196, 253, 0.15);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         
         .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 1);
         }
         
         .subject-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #2a5298;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         
         .subject-card h3 i {
-            margin-right: 8px;
+            font-size: 1.5rem;
             color: #4a6fa5;
         }
         
         .subject-card p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #6c7a89;
             margin-bottom: 0;
+            line-height: 1.6;
         }
         
         /* 兴趣部分 */
         .interests-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         .interest-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 18px;
-            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .interest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.07);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.95);
         }
         
         .interest-card i {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #4a6fa5;
-            margin-bottom: 0.8rem;
-            background: linear-gradient(135deg, #e0eafc, #cfdef3);
-            width: 70px;
-            height: 70px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(161, 196, 253, 0.15), rgba(194, 233, 251, 0.15));
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-        }
-        
-        .interest-card h3 {
-            font-size: 1.1rem;
-            color: #2a5298;
-        }
-        
-        /* 成就部分 */
-        .achievement {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             transition: all 0.3s ease;
         }
         
+        .interest-card:hover i {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .interest-card h3 {
+            font-size: 1.15rem;
+            color: #2a5298;
+            font-weight: 600;
+        }
+        
+        /* 成就部分 */
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .achievement {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: visible !important; /* 关键：允许图片超出 */
+        }
+
+        .award-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 99999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
         .achievement:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.95);
         }
         
         .achievement i {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #4a6fa5;
-            margin-right: 1.2rem;
+            margin-right: 1.5rem;
             min-width: 50px;
+            background: linear-gradient(135deg, rgba(161, 196, 253, 0.15), rgba(194, 233, 251, 0.15));
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement:hover i {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: white;
+            transform: scale(1.1);
         }
         
         .achievement-content h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #2a5298;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
         .achievement-content p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #6c7a89;
             margin-bottom: 0;
+            line-height: 1.6;
         }
         
         footer {
             text-align: center;
-            padding: 2.5rem 0 1.5rem;
+            padding: 3rem 0 2rem;
             color: #6c7a89;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            margin-top: 1rem;
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
             body {
-                padding: 1rem;
+                padding: 1.2rem;
             }
             
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
+            }
+            
+            .school {
+                font-size: 1.2rem;
             }
             
             .tagline {
@@ -357,56 +454,93 @@
             }
             
             .glass-card {
-                padding: 1.6rem;
+                padding: 1.8rem;
             }
             
-            .subjects {
-                flex-direction: column;
+            .subjects,
+            .interests-grid,
+            .achievements {
+                grid-template-columns: 1fr;
             }
         }
         
-        /* GitHub Pages 教程部分 */
-        .tutorial-section {
-            margin-top: 2.5rem;
+        /* 故事部分 */
+        .story-section {
+            margin-top: 2rem;
         }
         
-        .tutorial-step {
-            margin-bottom: 1.3rem;
-            padding-left: 1.8rem;
+        .story-link {
+            display: inline-block;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(161, 196, 253, 0.3);
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
         }
         
-        .tutorial-step::before {
+        .story-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(161, 196, 253, 0.4);
+        }
+        
+        .story-link::after {
             content: '';
             position: absolute;
+            top: 0;
             left: 0;
-            top: 8px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            z-index: 1;
         }
         
-        .code-block {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            margin: 1rem 0;
-            overflow-x: auto;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            font-size: 0.9rem;
+        .story-link span {
+            position: relative;
+            z-index: 2;
         }
         
-        .tutorial-note {
-            margin-top: 1.2rem;
-            padding: 1rem;
-            background: rgba(161, 196, 253, 0.1);
-            border-radius: 12px;
-            border-left: 3px solid #4a6fa5;
+        .story-link i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
         }
+        
+        .story-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* 浮动动画 */
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .achievement {
+    position: relative;
+}
+
+.award-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.achievement:hover .award-image {
+    transform: translate(-50%, -110%) scale(1);
+    opacity: 1;
+}
     </style>
 </head>
 <body>
@@ -420,25 +554,35 @@
     <div class="container">
         <header>
             <div class="avatar">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="学生头像">
+                <img src="./pic/avatar.jpg" alt="王梓泰的头像">
             </div>
-            <h1>Zitai Wang</h1>
+            <h1>王梓泰</h1>
             <p class="school">揭阳第一中学 | 准高二学生</p>
             <p class="tagline">热爱科技与编程的理科生 | 黄旭华班成员</p>
             <p class="tagline">校数学建模校队队长 | 校机器人战队成员</p>
             <div class="social-icons">
-                <a href="https://github.com/Jessssssseea"><i class="fab fa-github"></i></a>
-                <a href="https://space.bilibili.com/518736400"><i class="fab fa-bilibili"></i></a>
-                <a href="https://www.youtube.com/@Jessssssseea"><i class="fab fa-youtube"></i></a>
-                <a href="https://x.com/Jessssssseea"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/Jessssssseea" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://space.bilibili.com/518736400" title="哔哩哔哩">
+                    <i class="fab fa-bilibili"></i>
+                </a>
+                <a href="https://www.youtube.com/@Jessssssseea" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://x.com/Jessssssseea" title="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
             </div>
         </header>
         
         <main>
             <div class="glass-card">
                 <h2><i class="fas fa-user-graduate"></i>关于我</h2>
-                <p>我是一名高二理科学生，对计算机科学和人工智能充满热情。平时喜欢研究编程、参加机器人竞赛，也热爱篮球和摄影。</p>
-                <p>在校期间担任校数学建模校队队长，曾带领团队获得国家级数学建模比赛二等奖。我的目标是进入顶尖大学的计算机专业，未来成为一名AI工程师。</p>
+                <p>我是揭阳一中的高二理科生，对计算机科学和人工智能充满热情。作为校数学建模校队队长，我带领团队获得国家级数学建模比赛二等奖，同时积极参与机器人竞赛。</p>
+                <p>我的目标是进入顶尖大学的计算机专业，未来成为一名AI工程师。在课余时间，我喜欢编程、机器人开发、羽毛球和摄影，也喜欢探索心理学和阅读。</p>
             </div>
             
             <div class="glass-card">
@@ -446,19 +590,19 @@
                 <div class="subjects">
                     <div class="subject-card">
                         <h3><i class="fas fa-calculator"></i>数学</h3>
-                        <p>常居年级前五，擅长代数与几何</p>
+                        <p>常居年级前五，擅长代数与几何，数学建模能力强</p>
                     </div>
                     <div class="subject-card">
                         <h3><i class="fas fa-globe-asia"></i>英语</h3>
-                        <p>常居年级前三十，科技英语能力突出</p>
+                        <p>常居年级前三十，科技英语能力突出，阅读广泛</p>
                     </div>
                     <div class="subject-card">
-                        <h3><i class="fas fa-flask"></i>通用技术</h3>
-                        <p>熟练掌握3D建模，动手能力强</p>
+                        <h3><i class="fas fa-ruler-combined"></i>通用技术</h3>
+                        <p>熟练掌握3D建模，动手能力强，机器人设计经验丰富</p>
                     </div>
                     <div class="subject-card">
                         <h3><i class="fas fa-code"></i>信息学</h3>
-                        <p>熟练掌握Python，学习算法设计</p>
+                        <p>熟练掌握Python，学习算法设计，有项目开发经验</p>
                     </div>
                 </div>
             </div>
@@ -471,7 +615,7 @@
                         <h3>机器人</h3>
                     </div>
                     <div class="interest-card">
-                        <i class="fas fa-badminton"></i>
+                        <i class="fas fa-table-tennis"></i>
                         <h3>羽毛球</h3>
                     </div>
                     <div class="interest-card">
@@ -491,66 +635,79 @@
                         <h3>阅读</h3>
                     </div>
                     <div class="interest-card">
-                        <i class="fas fa-SM"></i>
+                        <i class="fas fa-chart-line"></i>
                         <h3>数学建模</h3>
                     </div>
                     <div class="interest-card">
-                        <i class="fas fa-love"></i>
+                        <i class="fas fa-brain"></i>
                         <h3>心理学</h3>
                     </div>
                     <div class="interest-card">
-                        <i class="fas fa-game"></i>
+                        <i class="fas fa-gamepad"></i>
                         <h3>玩游戏</h3>
                     </div>
                     <div class="interest-card">
-                        <i class="fas fa-so-on"></i>
-                        <h3>...</h3>
+                        <i class="fas fa-plus"></i>
+                        <h3>更多兴趣</h3>
                     </div>
                 </div>
             </div>
             
             <div class="glass-card">
                 <h2><i class="fas fa-trophy"></i>成就与奖项</h2>
-                <div class="achievements">
-                    <div class="achievement">
-                        <i class="fas fa-medal"></i>
-                        <div class="achievement-content">
-                            <h3>省级机器人竞赛第一名</h3>
-                            <p>2023年青少年机器人比赛红色之旅项目第一名</p>
-                        </div>
+                <div class="achievement" data-award="./pic/award1.jpg">
+                    <i class="fas fa-medal"></i>
+                    <div class="achievement-content">
+                        <h3>省级机器人竞赛第一名</h3>
+                        <p>2023年青少年机器人比赛红色之旅项目第一名</p>
                     </div>
-                    <div class="achievement">
-                        <i class="fas fa-certificate"></i>
-                        <div class="achievement-content">
-                            <h3>数学建模比赛二等奖</h3>
-                            <p>2025年全国第五届高中数学建模（应用）能力展示活动决赛论文二等奖</p>
-                        </div>
-                    </div>
-                    <div class="achievement">
-                        <i class="fas fa-award"></i>
-                        <div class="achievement-content">
-                            <h3>新兴校队领导者</h3>
-                            <p>2025年7月创办揭阳一中数模队</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 故事部分 -->
-            <div class="glass-card tutorial-section">
-                <h2><i class="fab fa-github"></i>我的故事</h2>
-                <p>真实故事往往比小说还魔幻：</p>
-                
-                <div class="tutorial-step">
-                    <h3><a href="https://jessssssseea.github.io/With_CPH">科幻小说——🚶🐴💡</a></h3>
+                    <img class="award-image" src="./pic/award1.jpg" alt="奖状">
                 </div>
 
+                <div class="achievement" data-award="./pic/award2.jpg">
+                    <i class="fas fa-certificate"></i>
+                    <div class="achievement-content">
+                        <h3>数学建模比赛二等奖</h3>
+                        <p>2025年全国第五届高中数学建模（应用）能力展示活动决赛论文二等奖</p>
+                    </div>
+                    <img class="award-image" src="./pic/award2.jpg" alt="奖状">
+                </div>
+
+                <div class="achievement" data-award="./pic/award3.jpg">
+                    <i class="fas fa-award"></i>
+                    <div class="achievement-content">
+                        <h3>程序创新设计前八名</h3>
+                        <p>2022年揭阳市中小学生创意程序设计比赛初中组一等奖</p>
+                    </div>
+                    <img class="award-image" src="./pic/award3.jpg" alt="奖状">
+                </div>
+
+                <div class="achievement" data-award="./pic/award3.jpg">
+                    <i class="fas fa-star"></i>
+                    <div class="achievement-content">
+                        <h3>潮汕星河奖科技奖</h3>
+                        <p>2024年度潮汕星河奖科技奖集体二等奖</p>
+                    </div>
+                    <img class="award-image" src="./pic/award4.jpg" alt="奖状">
+                </div>
+            </div>
+
+            
+            <!-- 故事部分 -->
+            <div class="glass-card story-section">
+                <h2><i class="fas fa-book-open"></i>我的故事</h2>
+                <p>真实故事往往比小说还魔幻：</p>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="./With_CPH.html" class="story-link">
+                        <span>阅读我的:科幻小说——🚶🐴💡 <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
             </div>
         </main>
         
         <footer>
-            <p>© 2023 高中生个人主页 | 液态玻璃效果设计</p>
-            <p>使用HTML, CSS和JavaScript构建</p>
+            <p>© 2025 王梓泰的个人主页</p>
+            <p>使用HTML, CSS和JavaScript构建 | 最后更新: 2025年7月</p>
         </footer>
     </div>
 
@@ -581,6 +738,12 @@
                 const randomX = (Math.random() - 0.5) * 40;
                 const randomY = (Math.random() - 0.5) * 40;
                 blob.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+            
+            // 为兴趣图标添加浮动效果
+            const interestIcons = document.querySelectorAll('.interest-card i');
+            interestIcons.forEach((icon, index) => {
+                icon.style.animation = `float-icon 3s ease-in-out ${index * 0.2}s infinite`;
             });
         });
     </script>
