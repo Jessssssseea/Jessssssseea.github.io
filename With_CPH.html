@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科幻小说——🚶🐴💡 | 王梓泰</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+    <link rel="icon" href="./pic/a2.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #0a0a16;
+            color: #e0e0e0;
+            line-height: 1.8;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(20, 30, 80, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(30, 60, 120, 0.15) 0%, transparent 40%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(64, 128, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #4a6fa5, #769fcd, #a1c4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #96a6c9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1.5rem;
+            color: #769fcd;
+            font-size: 1.1rem;
+        }
+        
+        .author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #4a6fa5;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(10, 15, 35, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(64, 128, 255, 0.1);
+            opacity: 0; /* 初始设置为透明 */
+            transform: translateY(30px); /* 初始位置向下偏移 */
+            transition: opacity 0.8s ease, transform 0.8s ease; /* 平滑过渡 */
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #a1c4fd;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(64, 128, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            background: rgba(64, 128, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .narrative {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #d0d8e8;
+            text-align: justify;
+        }
+        
+        .chat-section {
+            background: rgba(15, 25, 50, 0.6);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 3px solid #4a6fa5;
+        }
+        
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #769fcd;
+            margin-bottom: 1rem;
+        }
+        
+        .message {
+            padding: 0.8rem;
+            margin: 0.8rem 0;
+            border-radius: 12px;
+            max-width: 80%;
+            position: relative;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message.sender {
+            background: rgba(64, 128, 255, 0.25);
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .message.receiver {
+            background: rgba(40, 50, 90, 0.6);
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+        
+        .message .sender-name {
+            font-weight: 600;
+            color: #a1c4fd;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .message .time {
+            font-size: 0.75rem;
+            color: #769fcd;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .images-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .story-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(64, 128, 255, 0.3);
+            cursor: zoom-in;
+        }
+        
+        .story-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(64, 128, 255, 0.3);
+        }
+        
+        .story-image.enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.8);
+            z-index: 1000;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: zoom-out;
+            box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.8);
+        }
+        
+        .image-container {
+            margin: 20px 0;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #769fcd;
+            margin-top: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4a6fa5, #769fcd, #a1c4fd);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4a6fa5;
+            border: 3px solid #0a0a16;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #a1c4fd;
+            margin-bottom: 5px;
+        }
+        
+        .highlight {
+            background: rgba(64, 128, 255, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            color: #a1c4fd;
+            font-weight: 500;
+        }
+        
+        .conversation-highlight {
+            background: rgba(30, 60, 120, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #a1c4fd;
+        }
+        
+        .conversation-highlight p {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .conversation-highlight p::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 2rem;
+            color: rgba(64, 128, 255, 0.5);
+        }
+        
+        .footer-note {
+            text-align: center;
+            padding: 3rem 0;
+            color: #769fcd;
+            font-size: 1rem;
+            border-top: 1px solid rgba(64, 128, 255, 0.2);
+            margin-top: 2rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .images-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+        }
+        
+        /* 浮动效果 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(64, 128, 255, 0.1);
+            z-index: -1;
+            animation: float 2s infinite ease-in-out;
+        }
+        
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 5%;
+        }
+        
+        .floating-icon:nth-child(2) {
+            top: 20%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+        
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 7%;
+            animation-delay: 4s;
+        }
+        
+        .floating-icon:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动图标背景 -->
+    <i class="floating-icon">🚶</i>
+    <i class="floating-icon">🐴</i>
+    <i class="floating-icon">💡</i>
+    <i class="floating-icon">🤖</i>
+    
+    <div class="container">
+        <header>
+            <h1>“科幻”小说——🚶🐴💡</h1>
+            <p class="subtitle">一段关于机器人比赛、人际交往与青春成长的独特经历</p>
+            <div class="author">
+                <!-- 替换作者头像 -->
+                <img src="./pic/avatar.jpg" alt="作者头像">
+                <span>作者：王梓泰</span>
+            </div>
+        </header>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-robot"></i> 引言：机器人之缘</h2>
+            <p class="narrative">
+                我，王梓泰，现在读高一。在七年级后八年级参加了广东科学院举办的青少年机器人比赛红色之旅项目，并且分别斩获省二等奖和省第一名。
+            </p>
+            <p class="narrative">
+                24年11月初（6号？）在一个阳光明媚的中午，我（王梓泰）从宿舍赶到教室，然后陈平浩突然走过来，招呼我出去教室外面谈话。他向我说："你有兴趣打机器人比赛吗？"我说："有啊！"他说这个很累了，我说我的参赛经验很丰富，不怕的。他答应了。
+            </p>
+            
+            <div class="chat-section">
+                <div class="chat-title">
+                    <i class="fas fa-comments"></i>
+                    <h3>对话记录</h3>
+                </div>
+                
+                <div class="message receiver">
+                    <div class="sender-name">陈平浩</div>
+                    <div>你有兴趣打机器人比赛吗？</div>
+                    <div class="time">11:30 AM</div>
+                </div>
+                
+                <div class="message sender">
+                    <div class="sender-name">王梓泰</div>
+                    <div>有啊！</div>
+                    <div class="time">11:31 AM</div>
+                </div>
+                
+                <div class="message receiver">
+                    <div class="sender-name">陈平浩</div>
+                    <div>这个很累的哦</div>
+                    <div class="time">11:31 AM</div>
+                </div>
+                
+                <div class="message sender">
+                    <div class="sender-name">王梓泰</div>
+                    <div>我的参赛经验很丰富，不怕的</div>
+                    <div class="time">11:32 AM</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                接下来几天，他都没与我说任何一句话，我跟焦急。周末回家，我立刻加了他的QQ，并尬聊了许久。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat1.jpg" alt="聊天记录截图 1" class="story-image">
+                    <div class="image-caption">聊天记录截图 1</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                根据时间可以看出来，他许久不回复我，一直拖时间，搞得我很紧张。在这之前，我刚和父母说和他一起去参赛，然后和他聊天完又尴尬地和父母解释了。这段尴尬的经历令我很恼火，不过接下来发生的一切更令我难过。
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-users"></i> 关系转折</h2>
+            <p class="narrative">
+                我向宿舍里的同学们去说了这件事。几天后，有人（余嘉伟）给我带回了消息：他问陈平浩为什么选择不和我做队友，他回答说是我们两的方向不同，理念应该也不相同，所以他在找了我以后又去找了其他队友。他还说我这个人其实挺好的（好人卡是吧）。
+            </p>
+            
+            <div class="conversation-highlight">
+                <p>方向其实都是相同的。即使不相同，那个比赛参与的也要一个是组装机器人，一个是写程序的。</p>
+                <p>我逐渐生气，因为这个和被绿了一样。</p>
+            </div>
+            
+            <p class="narrative">
+                我去找了以前一位同学（江恩跃），他分析过后得出一个结论：他没理由这样做，动机不明，应该是在勾引我。我震惊地说：这是gay吧？！他允以肯定。被gay找上了，离谱。
+            </p>
+        
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-code"></i> 生日提醒程序</h2>
+            <p class="narrative">
+                过后，余嘉伟知道我编程能力还行，让我去做一个生日提醒程序。我先答应了，后面又拒绝了，和他说让陈平浩去做，说是"另请高人"。他不太同意，经过我的软磨硬泡后，他中午同意了我的计划，说寒假去和平浩说。
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">寒假期间</div>
+                    <p class="narrative">我抢先做好了程序PC桌面版，并且上架了github，想着等平浩做好了就立刻发给嘉伟，刺激平浩。不过我毕竟能力有限，许多功能都无法实现，到最后还甚至做了web版和手机版，但效果不尽人意，几乎放弃了。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">开学后</div>
+                    <p class="narrative">整个寒假我都联系不到嘉伟。开学后才得知，嘉伟还没和平浩说，并且一直推迟到现在，好像还是没说。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">第二周周末</div>
+                    <p class="narrative">平浩拒绝了。然后我就给嘉伟了。后面我们在磕吴偲、蒋妮两人和平浩的关系，我就和蒋妮聊过。我和她说了整件事，她说她可以当一当中间人，然后他就去和平浩说了，直截了当地说。</p>
+                </div>
+            </div>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat2.jpg" alt="陈平浩回复截图 1" class="story-image">
+                    <div class="image-caption">陈平浩回复截图 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat3.jpg" alt="陈平浩回复截图 2" class="story-image">
+                    <div class="image-caption">陈平浩回复截图 2</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                我直接懵逼了，然后就和舍友们讨论出解决方案。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat4.jpg" alt="宿舍讨论方案截图" class="story-image">
+                    <div class="image-caption">宿舍讨论方案截图</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> 机器人比赛与后续</h2>
+            <p class="narrative">
+                下一周，我看到他看见我都很尴尬。3月13号，我终于发现要举办机器人比赛了，我纠结了很久，权衡了各方利弊，终于选择林凯佳作为队友，并且选择了道路工程项目。当我和肖佳栋老师说时，他本来不同意，经过我的软磨硬泡，终于答应了。
+            </p>
+            
+            <div class="conversation-highlight">
+                <p>我去社团呆了一中午，这是我在社团待得最久的一次。真的离谱，好消息是，能动，坏消息是，只会动而已。</p>
+            </div>
+            
+            <p class="narrative">
+                而平浩他们我终于知道了，是一个级别比我们高的比赛。说是比赛，倒不如说是展示活动。他们从上学期开始准备，到现在基本做不了任务。唉，一言难尽，他是不会吗？但是他级别比我高使用心情有点郁闷，不过也没事，我感觉以他那种状态，很难得奖，得奖了也是他厉害。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/pj1.jpg" alt="他人评价截图 1" class="story-image">
+                    <div class="image-caption">他人评价截图 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/pj2.jpg" alt="他人评价截图 2" class="story-image">
+                    <div class="image-caption">他人评价截图 2</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/pj3.jpg" alt="他人评价截图 3" class="story-image">
+                    <div class="image-caption">他人评价截图 3</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/pj4.jpg" alt="他人评价截图 4" class="story-image">
+                    <div class="image-caption">他人评价截图 4</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-heart-broken"></i> 情感纠葛</h2>
+            <p class="narrative">
+                在某个晚上，平浩和吴偲还有蒋妮谈了近一个小时的话，我坐在旁边直接被吵死，感觉有点撒狗粮，很生气，直接发了一条动态去阴阳他，结果就他没点赞，并且他还有给旁边的动态点赞，就是没有我这条。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt1.jpg" alt="QQ动态截图 1" class="story-image">
+                    <div class="image-caption">QQ动态截图 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt2.jpg" alt="QQ动态截图 2" class="story-image">
+                    <div class="image-caption">QQ动态截图 2</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt3.jpg" alt="QQ动态截图 3" class="story-image">
+                    <div class="image-caption">QQ动态截图 3</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                最近还是想起来一件事。很久以前，陈平浩参加那个展示活动时，他可能是用师兄去年的视频去剪辑成自己的去提交。剪辑完成后他就发现自己的机器人又能行了，并且后面他听到肖佳栋说自己的视频肯定分数会高一点，他就犹豫了。
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-angry"></i> 佞人出现</h2>
+            <p class="narrative">
+                4月23日晚上，林宏伟去问平浩题目，平浩就顺带问他：“听说王梓泰晚上一直在你们宿舍谈论我？”宏伟就说没有，平浩就说是王凯加说的，然后平浩就一直追问我们宿舍晚上在聊什么，宏伟就如实回答：“聊何淇上学期的那件事。”平浩听到后面色僵硬，过了一会才缓过来，便不再追问。
+            </p>
+            <p class="narrative">
+                我们宿舍知道后都很愤怒，特别是我，后面就和嘉伟商量一下对策。周六我回家后也写了一篇声明文章，并发布在QQ空间和微信朋友圈上，但是平浩没有给我点赞，应该是看过了吧。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/py.jpg" alt="澄清声明" class="story-image">
+                    <div class="image-caption">澄清声明</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                我其实想坐下来，吃顿饭，和他谈一谈这件事，顺便辟个谣。在关系缓和的阶段能搞出这种幺蛾子也是真的无语了。但是转念一想，他既然回去问宏伟，他也知道我和宏伟关系比较好，那么他肯定是对这件事的真实性产生了怀疑，这也是正确的选择。
+            </p>
+
+            <p class="narrative">
+                五一假期间，我叫宏伟去问了一下，发现没啥大事，也应该是解释清楚了。
+            </p>
+
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat5.jpg" alt="宏伟澄清截图" class="story-image">
+                    <div class="image-caption">宏伟澄清截图</div>
+                </div>
+            </div>
+
+            <p class="narrative">不过同学关系还是修复得挺快的。</p>
+            
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-balance-scale"></i> 辩论赛</h2>
+            <p class="narrative">
+                到了辩论赛，我去做主持人，稿子中有点夹带私货讽刺平浩。不过他的辩论发挥得超差，每次他说完听众与对方辩手都不知道他在说什么。后面他还和谢烨睿解释说他以为对方在查资料时都有查过那些专业名词，所以他当对方是懂得，直接提出、不解释。他还说了“如果他们（在自由辩论环节）攻击的不是蒋妮而是我，那肯定是我们赢。”他明明自己逻辑都不清晰了。
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-heart-broken"></i> 比赛</h2>
+            <p class="narrative">
+                很快便到了 5.17 比赛那天，而我们却被惠来一中的高子末同学举报违反规则，从全市第一名扣分到全市第七名。而平浩他们却拿了第一名，挺厉害的。他们能够进入省赛，如果他们能拿到一等奖，我明年就有希望申请一个直通省赛的名额。
+            </p>
+            <p class="narrative">
+                整个机器人练习的过程中，我没有任何外力可以借助。而平浩，被别人调侃为“肖佳栋的私生子”，他几乎所有的程序都是肖佳栋帮忙他的。而肖佳栋从没帮过我。最开始我以为是信任，希望是吧，后面感觉其实好偏心啊。并且感觉师兄对我的态度也一般，但是对平浩的态度一直很好。
+            </p>
+            <p class="narrative">
+                5.23 平浩他们去了珠海比赛，比赛上文 11.7 邀请我的那个比赛，心情因为这个还有市赛失利、考试失利等，非常难过。23 号下午，我中午决定去和黄漫霞老师聊一聊了，心情或许比较好了。
+            </p>
+
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat6.jpg" alt="心情不好的聊天记录 1" class="story-image">
+                    <div class="image-caption">心情不好的聊天记录 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat7.jpg" alt="心情不好的聊天记录 2" class="story-image">
+                    <div class="image-caption">心情不好的聊天记录 2</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt4.jpg" alt="“父亲”的关爱 1" class="story-image">
+                    <div class="image-caption">“父亲”的关爱 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt5.jpg" alt="“父亲”的关爱 2" class="story-image">
+                    <div class="image-caption">“父亲”的关爱 2</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt6.jpg" alt="“哥哥”的关爱 2" class="story-image">
+                    <div class="image-caption">“哥哥”的关爱 2</div>
+                </div>
+            </div>
+            <p class="narrative">好吧，平浩他们得了二等奖（第六名）。</p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat8.jpg" alt="装逼的聊天记录" class="story-image">
+                    <div class="image-caption">装逼的聊天记录</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/yyz.jpg" alt="我的感伤" class="story-image">
+                    <div class="image-caption">我的感伤</div>
+                </div>
+            </div>
+            <p class="narrative">到此为止吧。</p>
+            <p class="narrative">真的结束了吗？</p>
+
+
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 竞选风波</h2>
+            <p class="narrative">
+                学期末，他要竞选团校优秀学员。当时他邀请我加入他的竞选团队，我同意了。当时我看了他的PPT，感觉里面的内容很突兀，有点炫耀。
+            </p>
+            
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/ppt.jpg" alt="竞选PPT截图" class="story-image">
+                    <div class="image-caption">竞选PPT截图</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                我就和他提建议去改，可是他不听。在前一天晚上，我和王弘毅一起回宿舍。我就问他要不要去参加竞选，他想了想，接受了。再隔一天，王弘毅才邀请我加入他的竞选小组，并且帮他做PPT。
+            </p>
+            
+            <div class="conversation-highlight">
+                <p>陈平浩看到我在帮他做了。那天晚上，他和他的舍友说，他感觉这次竞选赢不了了，没希望了，感觉我是不会支持他的。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-comment-dots"></i> QQ大战</h2>
+            <p class="narrative">
+                那天下午刚放学时，他发了一条 QQ 动态。我感觉有点在暗讽我。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt7.jpg" alt="QQ大战 1" class="story-image">
+                    <div class="image-caption">QQ大战 1</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                然后我就回了条。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt8.jpg" alt="QQ大战 2" class="story-image">
+                    <div class="image-caption">QQ大战 2</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                他十分不爽。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt9.jpg" alt="QQ大战 3-1" class="story-image">
+                    <div class="image-caption">QQ大战 3-1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt9-1.jpg" alt="QQ大战 3-2" class="story-image">
+                    <div class="image-caption">QQ大战 3-2</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                我更生气了。又发了一条，不过后面删了，他应该没有看到。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt10.1.jpg" alt="QQ大战 4.1" class="story-image">
+                    <div class="image-caption">QQ大战 4.1</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                这是别人的评价。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat12.jpg" alt="他人评价 1" class="story-image">
+                    <div class="image-caption">他人评价 1</div>
+                </div>
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat13.jpg" alt="他人评价 2" class="story-image">
+                    <div class="image-caption">他人评价 2</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                我后来发了一条，极其隐喻的。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/dt10.2.jpg" alt="QQ大战 4.2" class="story-image">
+                    <div class="image-caption">QQ大战 4.2</div>
+                </div>
+            </div>
+
+            <p class="narrative">
+                娜娜的那个时间就是他发 QQ 动态的时间。
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/nyn.jpg" alt="explain" class="story-image">
+                    <div class="image-caption">解析</div>
+                </div>
+            </div>
+
+            <p class="narrative">后来他把他那条删了。</p>
+            <p class="narrative">然后我叫蒋妮去问。</p>
+            <div class="images-container">
+                <div class="image-container">
+                    <!-- 替换实际图片 -->
+                    <img src="./pic/media/chat14.jpg" alt="chat" class="story-image">
+                    <div class="image-caption">道歉？</div>
+                </div>
+            </div>
+            <p class="narrative">我不满意。</p>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title"><i class="fas fa-comment-dots"></i> 最终对话</h2>
+            <p class="narrative">
+                周日晚，我和嘉伟全说了，然后他、烨骏、楚鑫三人帮我和他谈了很久，当时他就是有所隐瞒，满口谎言，我不满意。周一晚，我直接和他谈。
+            </p>
+            
+            <div class="chat-section">
+                <div class="message receiver">
+                    <div class="sender-name">陈平浩</div>
+                    <div>当时呢，是黄家楠来叫他去找几个人，他找了有4个人吧，然后其他人都都有后面去找他，他说我没去找他</div>
+                    <div class="time">8:15 PM</div>
+                </div>
+                
+                <div class="message sender">
+                    <div class="sender-name">王梓泰</div>
+                    <div>我说我有去找他，他就不回复我这个问题</div>
+                    <div class="time">8:16 PM</div>
+                </div>
+                
+                <div class="message receiver">
+                    <div class="sender-name">陈平浩</div>
+                    <div>然后就对嘉伟说的和对蒋妮说的不一样的，他不承认</div>
+                    <div class="time">8:17 PM</div>
+                </div>
+            </div>
+            
+            <p class="narrative">
+                嘉伟非常生气，就是说他肯定是那样说的。后面的事就是那竞选的事嘛，他说他本来是想放弃的，但考虑他和弘毅是好兄弟，所以他就不放弃了，因为放弃完就只有弘毅和景逸两人去竞争一个名额。
+            </p>
+            
+            <div class="conversation-highlight">
+                <p>我问他后面为什么删掉那条动态，他说什么不发会让别人以为他心虚。我就问他，你删了不是更心虚吗。然后他说，他不想传播坏情绪。</p>
+                <p>我就问我就说幸好你没看到我后面发的那条，不然坏情绪更大。然后也就基本上谈开了，相互和解。</p>
+            </div>
+            
+            <p class="narrative">
+                然而真的是和解吗？后来他一看到我扭头就走。我和他打招呼他也直接扭头就走。我后来也扭头就走了。
+            </p>
+            <p class="narrative">我从来没有对一个人的情感这么复杂过，还是个男的，又"爱"又"恨"……</p>
+        </div>
+        
+        <div class="footer-note">
+            <p>© 2025 王梓泰 | 本故事基于真实经历创作</p>
+            <p>机器人比赛 | 青春成长 | 人际关系探索</p>
+        </div>
+    </div>
+
+    <script>
+        // 图片点击放大效果
+        //document.querySelectorAll('.story-image').forEach(image => {
+            //image.addEventListener('click', function() {
+                //this.classList.toggle('enlarged');
+            //});
+        //});
+        
+        // 滚动动画效果 - 修复版
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            
+            // 确保所有section初始状态一致
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+            });
+            
+            // 配置更灵敏的观察者
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px', // 底部向内缩进100px，更容易触发
+                threshold: 0.01
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 为每个section添加不同的延迟，创造层次感
+                        const index = Array.from(sections).indexOf(entry.target);
+                        entry.target.style.transitionDelay = `${index * 0.1}s`;
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        // 一旦显示就停止观察
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // 手动触发首屏元素的显示
+            setTimeout(() => {
+                const firstVisibleSections = Array.from(sections).filter(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top < window.innerHeight && rect.bottom >= 0;
+                });
+                
+                firstVisibleSections.forEach(section => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                    observer.unobserve(section);
+                });
+            }, 100);
+        });
+        
+        // 消息动画
+        const messages = document.querySelectorAll('.message');
+        messages.forEach((message, index) => {
+            message.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
