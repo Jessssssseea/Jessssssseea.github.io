@@ -401,14 +401,43 @@
     </style>
 </head>
 <body>
-	<!-- ========= 强制弹窗视频 ========= -->
-    <div id="videoModal">
-        <video id="introVideo" autoplay muted controls>
-            <source src="CPH.mp4" type="video/mp4">
-            您的浏览器不支持视频播放。
-        </video>
-        <button id="skipBtn">跳过</button>
-    </div>
+<!-- 透明背景弹窗 -->
+<div id="videoModal"
+     style="
+        position:fixed; inset:0;
+        background:rgba(0,0,0,0.4);  /* 半透明而不是纯黑 */
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        z-index:9999;
+     ">
+  <div style="
+        position:relative;
+        border-radius:16px;   /* 圆角 */
+        overflow:hidden;      /* 圆角裁切 */
+        box-shadow:0 0 30px rgba(0,0,0,0.6);
+      ">
+    <video id="introVideo"
+           width="720"
+           controls
+           style="display:block; border-radius:16px;">
+      <source src="cph.mp4" type="video/mp4">
+      您的浏览器不支持视频播放。
+    </video>
+  </div>
+  <button id="skipBtn"
+          style="
+            position:absolute;
+            top:20px;
+            right:20px;
+            padding:8px 16px;
+            background:rgba(0,0,0,0.5);
+            border:none;
+            border-radius:8px;
+            color:#fff;
+            cursor:pointer;
+          ">跳过</button>
+</div>
 
     <!-- 浮动图标背景 -->
     <i class="floating-icon">🚶</i>
