@@ -1,2 +1,588 @@
-<h1>Welcome to visit my pages</h1>
-<a>I'm sorry to CPH[doge]</a>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高中生个人主页 | GitHub Pages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e6f0ff 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        /* 液态玻璃背景 */
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob:nth-child(1) {
+            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            width: 500px;
+            height: 500px;
+            top: 10%;
+            left: 5%;
+        }
+        
+        .blob:nth-child(2) {
+            background: linear-gradient(120deg, #d4fc79, #96e6a1);
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+        
+        .blob:nth-child(3) {
+            background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+            width: 350px;
+            height: 350px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, 30px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(-30px, -20px); }
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            padding: 5px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(90deg, #4a6fa5, #769fcd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .school {
+            font-size: 1.3rem;
+            color: #6c7a89;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #5a6a85;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #4a6fa5;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            background: white;
+            color: #2a5298;
+        }
+        
+        /* 液态玻璃卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 2.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+        }
+        
+        .glass-card h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2a5298;
+            display: flex;
+            align-items: center;
+        }
+        
+        .glass-card h2 i {
+            margin-right: 12px;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .glass-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #5a6a85;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* 学业部分 */
+        .subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        
+        .subject-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 16px;
+            padding: 1.2rem;
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid rgba(161, 196, 253, 0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        
+        .subject-card h3 {
+            font-size: 1.1rem;
+            color: #2a5298;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-card h3 i {
+            margin-right: 8px;
+            color: #4a6fa5;
+        }
+        
+        .subject-card p {
+            font-size: 0.95rem;
+            color: #6c7a89;
+            margin-bottom: 0;
+        }
+        
+        /* 兴趣部分 */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        .interest-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.07);
+        }
+        
+        .interest-card i {
+            font-size: 2.2rem;
+            color: #4a6fa5;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .interest-card h3 {
+            font-size: 1.1rem;
+            color: #2a5298;
+        }
+        
+        /* 成就部分 */
+        .achievement {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .achievement:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        
+        .achievement i {
+            font-size: 1.8rem;
+            color: #4a6fa5;
+            margin-right: 1.2rem;
+            min-width: 50px;
+        }
+        
+        .achievement-content h3 {
+            font-size: 1.1rem;
+            color: #2a5298;
+            margin-bottom: 0.3rem;
+        }
+        
+        .achievement-content p {
+            font-size: 0.95rem;
+            color: #6c7a89;
+            margin-bottom: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 1.5rem;
+            color: #6c7a89;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .glass-card {
+                padding: 1.6rem;
+            }
+            
+            .subjects {
+                flex-direction: column;
+            }
+        }
+        
+        /* GitHub Pages 教程部分 */
+        .tutorial-section {
+            margin-top: 2.5rem;
+        }
+        
+        .tutorial-step {
+            margin-bottom: 1.3rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        
+        .tutorial-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+        }
+        
+        .code-block {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            font-size: 0.9rem;
+        }
+        
+        .tutorial-note {
+            margin-top: 1.2rem;
+            padding: 1rem;
+            background: rgba(161, 196, 253, 0.1);
+            border-radius: 12px;
+            border-left: 3px solid #4a6fa5;
+        }
+    </style>
+</head>
+<body>
+    <!-- 液态玻璃背景 -->
+    <div class="liquid-bg">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="学生头像">
+            </div>
+            <h1>Zitai Wang</h1>
+            <p class="school">揭阳第一中学 | 准高二学生</p>
+            <p class="tagline">热爱科技与编程的理科生 | 黄旭华班成员</p>
+            <p class="tagline">校数学建模校队队长 | 校机器人战队成员</p>
+            <div class="social-icons">
+                <a href="https://github.com/Jessssssseea"><i class="fab fa-github"></i></a>
+                <a href="https://space.bilibili.com/518736400"><i class="fab fa-bilibili"></i></a>
+                <a href="https://www.youtube.com/@Jessssssseea"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/Jessssssseea"><i class="fab fa-twitter"></i></a>
+            </div>
+        </header>
+        
+        <main>
+            <div class="glass-card">
+                <h2><i class="fas fa-user-graduate"></i>关于我</h2>
+                <p>我是一名高二理科学生，对计算机科学和人工智能充满热情。平时喜欢研究编程、参加机器人竞赛，也热爱篮球和摄影。</p>
+                <p>在校期间担任校数学建模校队队长，曾带领团队获得国家级数学建模比赛二等奖。我的目标是进入顶尖大学的计算机专业，未来成为一名AI工程师。</p>
+            </div>
+            
+            <div class="glass-card">
+                <h2><i class="fas fa-book"></i>学业情况</h2>
+                <div class="subjects">
+                    <div class="subject-card">
+                        <h3><i class="fas fa-calculator"></i>数学</h3>
+                        <p>常居年级前五，擅长代数与几何</p>
+                    </div>
+                    <div class="subject-card">
+                        <h3><i class="fas fa-globe-asia"></i>英语</h3>
+                        <p>常居年级前三十，科技英语能力突出</p>
+                    </div>
+                    <div class="subject-card">
+                        <h3><i class="fas fa-flask"></i>通用技术</h3>
+                        <p>熟练掌握3D建模，动手能力强</p>
+                    </div>
+                    <div class="subject-card">
+                        <h3><i class="fas fa-code"></i>信息学</h3>
+                        <p>熟练掌握Python，学习算法设计</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card">
+                <h2><i class="fas fa-heart"></i>兴趣爱好</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>机器人</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-badminton"></i>
+                        <h3>羽毛球</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-camera"></i>
+                        <h3>摄影</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-music"></i>
+                        <h3>音乐</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>编程</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>阅读</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-SM"></i>
+                        <h3>数学建模</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-love"></i>
+                        <h3>心理学</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-game"></i>
+                        <h3>玩游戏</h3>
+                    </div>
+                    <div class="interest-card">
+                        <i class="fas fa-so-on"></i>
+                        <h3>...</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card">
+                <h2><i class="fas fa-trophy"></i>成就与奖项</h2>
+                <div class="achievements">
+                    <div class="achievement">
+                        <i class="fas fa-medal"></i>
+                        <div class="achievement-content">
+                            <h3>省级机器人竞赛第一名</h3>
+                            <p>2023年青少年机器人比赛红色之旅项目第一名</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-certificate"></i>
+                        <div class="achievement-content">
+                            <h3>数学建模比赛二等奖</h3>
+                            <p>2025年全国第五届高中数学建模（应用）能力展示活动决赛论文二等奖</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-award"></i>
+                        <div class="achievement-content">
+                            <h3>新兴校队领导者</h3>
+                            <p>2025年7月创办揭阳一中数模队</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 故事部分 -->
+            <div class="glass-card tutorial-section">
+                <h2><i class="fab fa-github"></i>我的故事</h2>
+                <p>真实故事往往比小说还魔幻：</p>
+                
+                <div class="tutorial-step">
+                    <h3><a href="https://jessssssseea.github.io/With_CPH">科幻小说——🚶🐴💡</a></h3>
+                </div>
+
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 高中生个人主页 | 液态玻璃效果设计</p>
+            <p>使用HTML, CSS和JavaScript构建</p>
+        </footer>
+    </div>
+
+    <script>
+        // 滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.glass-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 背景元素浮动动画
+            const blobs = document.querySelectorAll('.blob');
+            blobs.forEach(blob => {
+                const randomX = (Math.random() - 0.5) * 40;
+                const randomY = (Math.random() - 0.5) * 40;
+                blob.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
